@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Rating</title>
+  </head>
+  <body>
+    <form action="{{ url_for('edit') }}" method="POST">
+      <p>Student Name: {{grade.student_name}}</p>
+      <p>Subject: {{grade.subject}}</p>
+      <p>Current Grade {{grade.grade}}</p>
+      <input hidden="hidden" name="id" value="{{grade.id}}" />
+      <input name="grade" type="number" placeholder="New Grade" />
+      <button type="submit">Change Grade</button>
+    </form>
+  </body>
+</html>

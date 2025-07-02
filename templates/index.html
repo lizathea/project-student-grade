@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Student Grade</title>
+  </head>
+  <body>
+    <h1>My Grade List</h1>
+    {% if grades == [] %}
+    <p>No Grade List.</p>
+    {% endif %}
+    <ul>
+      {% for grade in grades %}
+      <li>
+        <a href="{{ url_for('delete', id=grade.id) }}">Delete</a>
+        {{grade.id}} - {{grade.student_name}} - {{grade.subject}} - {{grade.grade}}
+        <a href="{{ url_for('edit', id=grade.id) }}">Edit</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('add') }}">Add New Student Grade</a>
+  </body>
+</html>
