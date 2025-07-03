@@ -3,15 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <title>Edit Rating</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
   </head>
-  <body>
-    <form action="{{ url_for('edit') }}" method="POST">
-      <p>Student Name: {{grade.student_name}}</p>
-      <p>Subject: {{grade.subject}}</p>
-      <p>Current Grade {{grade.grade}}</p>
-      <input hidden="hidden" name="id" value="{{grade.id}}" />
-      <input name="grade" type="number" placeholder="New Grade" />
-      <button type="submit">Change Grade</button>
-    </form>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="card shadow-sm">
+        <div class="card-header bg-warning text-dark">
+          <h4 class="mb-0">Edit Student Grade</h4>
+        </div>
+        <div class="card-body">
+          <form action="{{ url_for('edit') }}" method="POST">
+            <input type="hidden" name="id" value="{{ grade.id }}">
+
+            <div class="mb-3">
+              <label class="form-label">Student Name</label>
+              <input type="text" class="form-control" value="{{ grade.student_name }}" disabled>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Subject</label>
+              <input type="text" class="form-control" value="{{ grade.subject }}" disabled>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Current Grade</label>
+              <input type="number" class="form-control" value="{{ grade.grade }}" disabled>
+            </div>
+
+            <div class="mb-3">
+              <label for="newGrade" class="form-label">New Grade</label>
+              <input id="newGrade" name="grade" type="number" class="form-control" placeholder="Enter New Grade" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Change Grade</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle (optional) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
   </body>
 </html>

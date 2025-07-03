@@ -74,7 +74,6 @@ def delete():
     # DELETE A RECORD BY ID
     grade_to_delete = db.get_or_404(Grade, student_id)
     # Alternative way to select the book to delete.
-    # book_to_delete = db.session.execute(db.select(Book).where(Book.id == book_id)).scalar()
     db.session.delete(grade_to_delete)
     db.session.commit()
     return redirect(url_for('home'))
